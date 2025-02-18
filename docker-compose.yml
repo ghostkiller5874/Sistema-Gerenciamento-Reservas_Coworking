@@ -1,0 +1,51 @@
+# php:
+#   build: .
+#   ports:
+#     -"80:80"
+#     -"443:443"
+#   volumes:
+#     -./:/var/www/html
+
+#version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: php_apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/var/www/html # link/apontando a pasta raiz (local) com a pasta raiz(docker), no caso é alteravel, desde que a pasta apontada tenha o index.php
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    container_name: mysql_dB
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gestao_coworking
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+
+    
