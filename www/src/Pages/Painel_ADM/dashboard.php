@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>chamando dashboard</h1>
-    <a href="<?php echo INCLUDE_PATH?>">Ir para Home</a>
+    <h1>Chamando dashboard do painel ADM</h1>
 </body>
 </html>
