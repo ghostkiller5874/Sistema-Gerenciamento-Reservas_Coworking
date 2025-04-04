@@ -4,43 +4,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- CONFIGURAÇÕES -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+
+    <!-- ESTILIZAÇÃO -->
+    <link rel="stylesheet" href="./src/styles/global.css">
+
     <title>CoWorking</title>
 </head>
 <body>
     <?php
-        
-        $url = isset($_GET['url']) ? $_GET['url'] : 'home';
-        $pageError = './src/Pages/404.php';
-
-        $troca = PAGE_MAIN;
-        if(isset($_GET['url']) && $_GET['url'] == PAGE_USERS){
-            $troca = PAGE_USERS;
-        }else if(isset($_GET['url']) && $_GET['url'] == PAGE_ADM){
-            $troca = PAGE_ADM;
-        }
-            
-        
-
+        $url = isset($_GET['url']) ? $_GET['url'] : 'home';      
     ?>
-    <!-- HEADER -->
     
     <!-- CONTENT -->
     <?php 
-        if (file_exists('./'.$troca.$url.'.php')){
+        if (file_exists('./src/Pages/'.$url.'.php')){
             // retorna arquivo da pagina
-            include('./'.$troca.$url.'.php');
+            include('./src/Pages/'.$url.'.php');
         }else{
             // retorna pagina de erro 
-            include($pageError);
+            include "./src/Pages/404.php";
         }
     ?>
-    <br>
-    <a href="<?php echo INCLUDE_PATH.PAGE_USERS;?>dashboard">ir para user dashboard</a>
-    <br>
-    <a href="<?php echo INCLUDE_PATH.PAGE_ADM;?>dashboard">ir para painel dashboard</a>
-    <!-- FOOTER -->
+
+
+    <script defer src="./src/js/scripts.js"></script>
 </body>
 </html>
 

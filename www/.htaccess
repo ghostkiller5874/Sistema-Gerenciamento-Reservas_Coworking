@@ -1,6 +1,12 @@
+# ativa reescrever a url
 RewriteEngine On
+
+# condicional
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+
+# regras
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
 Options -Indexes

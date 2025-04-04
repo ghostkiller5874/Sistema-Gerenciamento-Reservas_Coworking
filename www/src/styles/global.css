@@ -1,6 +1,7 @@
+@import url('../Pages//styles/styles.css'); /* estilo da home */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Open Sans";
+    font-family: "Open Sans"!important;
 }
