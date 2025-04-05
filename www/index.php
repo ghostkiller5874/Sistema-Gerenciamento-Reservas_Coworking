@@ -35,6 +35,7 @@
     ?>
 
 
+    <script defer src="./src/js/jquery.js"></script>
     <script defer src="./src/js/scripts.js"></script>
 </body>
 </html>
