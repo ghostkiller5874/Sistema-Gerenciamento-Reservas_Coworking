@@ -9,7 +9,7 @@
 
                     self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }catch(Exception $e){
-                  echo $e;
+                    die("Erro de conexão::".$th->getMessage());
                 }  
             }
             
